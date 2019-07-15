@@ -1,0 +1,7 @@
+[
+  {
+    "op" : "replace",
+    "path" : "/prerequisites/0",
+    "value" : "mb_shiprepair1"
+  }
+]
