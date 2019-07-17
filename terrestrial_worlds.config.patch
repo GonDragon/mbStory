@@ -1,0 +1,7 @@
+[
+  {
+    "op" : "replace",
+    "path" : "/planetTypes/garden/layers/surface/dungeons",
+    "value" : [[1.0, "naturalcave"], [1.0, "mb_gardensci"]]
+  }
+]

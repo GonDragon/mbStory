@@ -21,6 +21,7 @@
     "descriptions" : {
       "explore" : "Explore the ^orange;orbited planet^reset;",
       // "findGate" : "Find the ^orange;archaic energy source^reset;",
+      "findMine" : "Find the ^orange;mineral energy source^reset;",
       "collectRepairItem" : "Collect ^orange;Core Fragments^reset;",
       // "repairGate" : "Use the ^orange;Core Fragments^reset; to activate the Gate",
       // "findEsther" : "Find the source of the ^orange;mysterious messages^reset;"
@@ -37,6 +38,7 @@
     },
 
     // "gateUid" : "ancientgate",
+    "mineUid" : "travellersbeacon",
     "gateRepairItem" : "corefragmentore",
     "gateRepairCount" : 20,
 

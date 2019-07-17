@@ -12,6 +12,7 @@ function init()
   self.gateRepairCount = config.getParameter("gateRepairCount")
 
   -- self.gateUid = config.getParameter("gateUid")
+  self.mineUid = config.getParameter("mineUid")
   self.techstationUid = config.getParameter("techstationUid")
   -- self.estherUid = config.getParameter("estherUid")
 
@@ -25,17 +26,15 @@ function init()
   storage.stage = storage.stage or 1
   self.stages = {
     explore,
-    -- findGate,
+    findMine,
     collectRepairItem,
-    -- repairGate,
-    -- findEsther
     getBackShip
   }
 
   self.state = FSM:new()
   self.state:set(self.stages[storage.stage])
 
-  storage.gateActive = storage.gateActive or false
+  -- storage.gateActive = storage.gateActive or false
 end
 
 function questInteract(entityId)
@@ -56,50 +55,50 @@ function update(dt)
   end
 end
 
-function gateActive()
-  if storage.gateActive then return true end
-
-  if not self.gatePromise then
-    self.gatePromise = world.sendEntityMessage(self.gateUid, "isActive")
-  else
-    if self.gatePromise:finished() then
-      if self.gatePromise:succeeded() then
-        storage.gateActive = self.gatePromise:result() == true
-      end
-      self.gatePromise = nil
-    end
-  end
-
-  return storage.gateActive
-end
+-- function gateActive()
+--   if storage.gateActive then return true end
+--
+--   if not self.gatePromise then
+--     self.gatePromise = world.sendEntityMessage(self.gateUid, "isActive")
+--   else
+--     if self.gatePromise:finished() then
+--       if self.gatePromise:succeeded() then
+--         storage.gateActive = self.gatePromise:result() == true
+--       end
+--       self.gatePromise = nil
+--     end
+--   end
+--
+--   return storage.gateActive
+-- end
 
 function explore()
   quest.setObjectiveList({{self.descriptions.explore, false}})
 
   -- Wait until the player is no longer on the ship
-  -- local findGate = util.uniqueEntityTracker(self.gateUid, self.compassUpdate)
+  local findMine = util.uniqueEntityTracker(self.mineUid, self.compassUpdate)
   local buffer = 0
   while storage.exploreTimer < self.exploreTime do
     -- quest.setProgress(math.min(storage.exploreTimer / self.exploreTime, 1.0)) -- Debug
     buffer = buffer + script.updateDt()
 
-    -- local gatePosition = findGate()
-    -- if gatePosition then
-    --   -- Gate is on this world, put buffer onto the exploration timer
-    --   storage.exploreTimer = storage.exploreTimer + buffer
-    --   buffer = 0
-    --   if world.magnitude(mcontroller.position(), gatePosition) < self.findRange then
-    --     self.state:set(gateFound)
-    --     coroutine.yield()
-    --   end
-    -- elseif gatePosition == nil then
-    --   -- Gate is not in this world, discard the buffer
-    --   buffer = 0
-    -- end
+    local minePosition = findMine()
+    if minePosition then
+      -- Mine is on this world, put buffer onto the exploration timer
+      storage.exploreTimer = storage.exploreTimer + buffer
+      buffer = 0
+      if world.magnitude(mcontroller.position(), minePosition) < self.findRange then
+        self.state:set(mineFound)
+        coroutine.yield()
+      end
+    elseif minePosition == nil then
+      -- Gate is not in this world, discard the buffer
+      buffer = 0
+    end
     coroutine.yield()
   end
 
-  storage.stage = 2
+  storage.stage = 3
 
   player.radioMessage("gaterepair-findGate")
 
@@ -108,36 +107,36 @@ function explore()
   self.state:set(self.stages[storage.stage])
 end
 
--- function findGate()
---   quest.setProgress(nil)
---   quest.setObjectiveList({{self.descriptions.findGate, false}})
---
---   -- Wait until the player is no longer on the ship
---   local findGate = util.uniqueEntityTracker(self.gateUid, self.compassUpdate)
---   while true do
---     local result = findGate()
---     questutil.pointCompassAt(result)
---     if result and world.magnitude(mcontroller.position(), result) < self.findRange then
---       self.state:set(gateFound)
---     end
---     coroutine.yield()
---   end
---
---   self.state:set(self.stages[storage.stage])
--- end
---
--- function gateFound()
---   quest.setProgress(nil)
---   quest.setCompassDirection(nil)
---   player.radioMessage("gaterepair-gateFound1")
---   player.radioMessage("gaterepair-gateFound1b")
---   player.radioMessage("gaterepair-gateFound2")
---   storage.stage = 3
---
---   util.wait(14)
---
---   self.state:set(self.stages[storage.stage])
--- end
+function findMine()
+  quest.setProgress(nil)
+  quest.setObjectiveList({{self.descriptions.findMine, false}})
+
+  -- Wait until the player is no longer on the ship
+  local findMine = util.uniqueEntityTracker(self.mineUid, self.compassUpdate)
+  while true do
+    local result = findMine()
+    questutil.pointCompassAt(result)
+    if result and world.magnitude(mcontroller.position(), result) < self.findRange then
+      self.state:set(mineFound)
+    end
+    coroutine.yield()
+  end
+
+  self.state:set(self.stages[storage.stage])
+end
+
+function mineFound()
+  quest.setProgress(nil)
+  quest.setCompassDirection(nil)
+  player.radioMessage("gaterepair-gateFound1")
+  player.radioMessage("gaterepair-gateFound1b")
+  player.radioMessage("gaterepair-gateFound2")
+  storage.stage = 3
+
+  util.wait(14)
+
+  self.state:set(self.stages[storage.stage])
+end
 
 function collectRepairItem()
   quest.setCompassDirection(nil)

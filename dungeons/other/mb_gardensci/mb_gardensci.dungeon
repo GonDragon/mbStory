@@ -1,0 +1,23 @@
+{
+  "metadata" : {
+    "name" : "mb_gardensci",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "protected" : true,
+    "anchor" : [ "mb_gardensci" ],
+    "maxRadius" : 1000000,
+    "maxParts" : 1,
+    "extendSurfaceFreeSpace" : 100
+  },
+
+  "parts" : [
+    {
+      "name" : "mb_gardensci",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "mb_gardensci.json" ]
+    }
+  ]
+}
