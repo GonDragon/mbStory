@@ -19,7 +19,13 @@
           ]
         }
       }
-    }
+    },
+
+    "offeredQuests" : [],
+    "turnInQuests" : [
+      "mb_shiprepair1"
+    ]
+
   },
 
   "items" : {
@@ -31,5 +37,13 @@
           }
         ] ]
     ]
+  },
+
+  "statusControllerSettings" : {
+    "stats" : {
+      "protection" : {
+        "baseValue" : 100.0
+      }
+    }
   }
 }

@@ -499,12 +499,14 @@
                  "properties":
                     {
                      "npc":"apex",
+                     "parameters":"{ \"scriptConfig\" : { \"uniqueId\" : \"mb_scientist\" } }",
                      "seed":"17",
                      "typeName":"mb_gardensci"
                     },
                  "propertytypes":
                     {
                      "npc":"string",
+                     "parameters":"string",
                      "seed":"string",
                      "typeName":"string"
                     },

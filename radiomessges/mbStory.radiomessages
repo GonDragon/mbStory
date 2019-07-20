@@ -1,0 +1,14 @@
+{
+  "mb-exploreTime" : {
+    "type" : "quest",
+    "text" : "My scans are picking up an unknown radio signal coming from somewhere in this planet. If you find it's origin, maybe they could help with the ship."
+  },
+  "mb-findSci" : {
+    "type" : "quest",
+    "text" : "My scans indicate that the radio signal came from a ^orange;concrete structure^reset; on this planet. I estimate a ^green;32% chance that it is worth investigating^reset;, and a 98% chance that you have nothing better to do."
+  },
+  "mb-sciFound" : {
+    "type" : "quest",
+    "text" : "The radio signal come from that structure. Look if there is someone who can help us."
+  }
+}

@@ -4,7 +4,7 @@
   "mainQuest" : true,
   "title" : "Getting Started",
   "text" : "We are currently in orbit around an unknown world. The ship is heavily damaged and we are unable to leave orbit. I suggest you ^green;beam down to the planet's surface using the ^orange;teleporter^white;, and search for supplies and perhaps a means of fixing the ship.",
-  "completionText" : "The ship is almost repaired. You can travel around the system, but the FTL is heavily damaged. Perhaps you should visit ^green;the outpost^white; of this system seeking for help.",
+  "completionText" : "Your ship is damaged and you're stranded? I have some tools here, from when the old mine were active. If you could find me ^orange;some materials^white;, I could try to fix your ship ^green;navigation system^white;.",
   "moneyRange" : [50, 50],
   "rewards" : [
     [ ["rewardbag", 1] ]
@@ -15,21 +15,23 @@
   "scriptConfig" : {
     "portraits" : {
       "questStarted" : "sail",
-      "questComplete" : "questReceiver"
+      "questComplete" : {
+        "portrait" : [ { "image" : "/npcs/portraits/mb_garyana.png" } ],
+        "title" : "Garyana"
+      }
+    },
+
+    "questGenerator" : {
+      "enableParticipation" : false
     },
 
     "descriptions" : {
       "explore" : "Explore the ^orange;orbited planet^reset;",
-      // "findGate" : "Find the ^orange;archaic energy source^reset;",
-      "findMine" : "Find the ^orange;mineral energy source^reset;",
-      "collectRepairItem" : "Collect ^orange;Core Fragments^reset;",
-      // "repairGate" : "Use the ^orange;Core Fragments^reset; to activate the Gate",
-      // "findEsther" : "Find the source of the ^orange;mysterious messages^reset;"
-      "getBackShip" : "Get back to the ship"
+      "findScientist" : "Find the origin of the ^orange;radio signal^reset;",
+      "scientistFound" : "Talk to the scientist."
     },
 
     "compassUpdate" : 0.2,
-
     "techstationUid" : "techstation",
 
     // applied when quest is started
@@ -37,21 +39,8 @@
       "capabilities" : ["teleport"]
     },
 
-    // "gateUid" : "ancientgate",
-    "mineUid" : "travellersbeacon",
-    "gateRepairItem" : "corefragmentore",
-    "gateRepairCount" : 20,
-
-    // "estherUid" : "estheroutpost",
-    "findRange" : 12,
-    "exploreTime" : 300,
-    // "findEstherCinema" : "/cinematics/story/esther/esther.cinematic",
-
-    "outpostBookmark" : {
-      "bookmarkName" : "General Outpost",
-      "targetName" : "",
-      "icon" : "outpost",
-      "target" : ["instanceworld:outpost", "arkteleporter"]
-    }
+    "scientistUid" : "mb_scientist",
+    "findRange" : 80,
+    "exploreTime" : 300
   }
 }
