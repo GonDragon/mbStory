@@ -10,5 +10,13 @@
   "mb-sciFound" : {
     "type" : "quest",
     "text" : "The radio signal come from that structure. Look if there is someone who can help us."
+  },
+  "mb-collectRepairItem1" : {
+    "type" : "quest",
+    "text" : "There is also a mine with high concentrations of ^orange;Core Fragments^reset; ner the surface. Although, a high concentration of dangerous biological life is also detected. Precaution is advised."
+  },
+  "mb-collectRepairItem2" : {
+    "type" : "quest",
+    "text" : "The iron appears on the form of unrefined ^orange;iron ore^reset; almost everywhere the surface of the planet, and deep underground. The construction of a furnace is suggested to transform the unrefined material to a most usefull state."
   }
 }

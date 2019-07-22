@@ -33,6 +33,10 @@
       "corefragmentore" : 20,
       "ironbar" : 3
     },
+    "repairItemsIndicators" : {
+      "type" : "itemList",
+      "items" : [ "corefragmentore", "ironbar" ]
+    },
 
     "compassUpdate" : 0.2,
 
@@ -41,7 +45,6 @@
       "capabilities" : ["teleport", "planetTravel"]
     },
 
-    "scientistUid" : "mb_scientist",
-    "gatherTime" : 300
+    "scientistUid" : "mb_scientist"
   }
 }

@@ -8,11 +8,10 @@ function init()
   self.descriptions = config.getParameter("descriptions")
 
   self.scientistUid = config.getParameter("scientistUid")
-
   self.repairItems = config.getParameter("repairItems")
-
-  self.gatherTime = config.getParameter("gatherTime")
   storage.gatherTime = storage.gatherTime or 0
+
+  quest.setParameter("itemList", config.getParameter("repairItemsIndicators"))
 
   setPortraits()
 
@@ -21,6 +20,8 @@ function init()
     collectRepairItem,
     returnToScientist
   }
+
+  self.informated = self.informated or false
 
   self.state = FSM:new()
   self.state:set(self.stages[storage.stage])
@@ -42,6 +43,14 @@ end
 
 function collectRepairItem()
   quest.setCompassDirection(nil)
+  quest.setIndicators({"itemList"})
+
+  if not self.informated then
+    player.radioMessage("gaterepair-gateFound2")
+    player.radioMessage("mb-collectRepairItem1")
+    player.radioMessage("mb-collectRepairItem2")
+    self.informated = true
+  end
 
   while storage.stage == 1 do
     quest.setObjectiveList({{self.descriptions.collectRepairItem, false}})
@@ -62,6 +71,7 @@ function returnToScientist()
   quest.setProgress(nil)
   quest.setObjectiveList({{self.descriptions.returnToScientist, false}})
   quest.setCanTurnIn(true)
+  quest.setIndicators({})
 
   local findSci = util.uniqueEntityTracker(self.scientistUid, self.compassUpdate)
   while storage.stage == 2 do
@@ -88,6 +98,9 @@ end
 
 function questComplete()
   setPortraits()
+  for item, amount in pairs(self.repairItems) do
+    player.consumeItem({ name = item, count = amount })
+  end
   player.upgradeShip(config.getParameter("shipUpgrade"))
   questutil.questCompleteActions()
 end
