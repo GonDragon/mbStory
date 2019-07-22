@@ -21,9 +21,16 @@
       }
     },
 
-    "offeredQuests" : [],
+    "questGenerator" : {
+      "enableParticipation" : false
+    },
+
+    "offeredQuests" : [
+      "mb_shiprepair2"
+    ],
     "turnInQuests" : [
-      "mb_shiprepair1"
+      "mb_shiprepair1",
+      "mb_shiprepair2"
     ]
 
   },

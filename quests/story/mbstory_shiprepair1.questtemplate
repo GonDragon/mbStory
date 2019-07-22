@@ -21,10 +21,6 @@
       }
     },
 
-    "questGenerator" : {
-      "enableParticipation" : false
-    },
-
     "descriptions" : {
       "explore" : "Explore the ^orange;orbited planet^reset;",
       "findScientist" : "Find the origin of the ^orange;radio signal^reset;",

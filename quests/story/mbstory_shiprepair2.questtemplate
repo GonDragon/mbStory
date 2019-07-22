@@ -1,0 +1,47 @@
+{
+  "id" : "mb_shiprepair2",
+  "prerequisites" : [ "mb_shiprepair1" ],
+  "mainQuest" : true,
+  "title" : "Gathering the components",
+  "text" : "Your ^gree;navigation system^white; seems damaged. If you bring me ^orange;3 Iron Bars^white; and ^orange;20 Core Fragments^white;, I would be able to fix the damaged components and broken energy modules. The ^green;FTL engine^white; also seems heavily damaged, but I can't help you with that.",
+  "completionText" : "That's it! With this, I can fix the ship. You'll be able to travel around the system, but I suggest you to visit the ^green;local outpost^white; and look for a mechanic to repair your ^orange;FTL engine^white;.",
+  "moneyRange" : [50, 50],
+  "rewards" : [
+    [ ["rewardbag", 1] ]
+  ],
+  "canBeAbandoned" : false,
+  "updateDelta" : 10,
+  "script" : "/quests/scripts/story/mbstory_shiprepair2.lua",
+  "scriptConfig" : {
+    "portraits" : {
+      "questStarted" : {
+        "portrait" : [ { "image" : "/npcs/portraits/mb_garyana.png" } ],
+        "title" : "Garyana"
+      },
+      "questComplete" : {
+        "portrait" : [ { "image" : "/npcs/portraits/mb_garyana.png" } ],
+        "title" : "Garyana"
+      }
+    },
+
+    "descriptions" : {
+      "collectRepairItem" : "Collect ^orange;Core Fragments^reset; and ^orange;Iron Bars^reset;",
+      "returnToScientist" : "Give the items to ^orange;The Scientist.^reset;"
+    },
+
+    "repairItems" : {
+      "corefragmentore" : 20,
+      "ironbar" : 3
+    },
+
+    "compassUpdate" : 0.2,
+
+    // applied when quest is finished
+    "shipUpgrade" : {
+      "capabilities" : ["teleport", "planetTravel"]
+    },
+
+    "scientistUid" : "mb_scientist",
+    "gatherTime" : 300
+  }
+}
