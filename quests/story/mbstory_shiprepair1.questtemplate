@@ -4,7 +4,7 @@
   "mainQuest" : true,
   "title" : "Getting Started",
   "text" : "We are currently in orbit around an unknown world. The ship is heavily damaged and we are unable to leave orbit. I suggest you ^green;beam down to the planet's surface using the ^orange;teleporter^white;, and search for supplies and perhaps a means of fixing the ship.",
-  "completionText" : "Your ship is damaged and you're stranded? I have some tools here, from when the old mine were active. If you could find me ^orange;some materials^white;, I could try to fix your ship ^green;navigation system^white;.",
+  "completionText" : "Your ship is damaged and you're stranded? I have some tools here, from when the old mine were active. I used to help repairing damaged cargo ships, so I may be able to help you.",
   "moneyRange" : [50, 50],
   "rewards" : [
     [ ["rewardbag", 1] ]

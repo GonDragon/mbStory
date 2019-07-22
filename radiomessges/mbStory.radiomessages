@@ -13,7 +13,7 @@
   },
   "mb-collectRepairItem1" : {
     "type" : "quest",
-    "text" : "There is also a mine with high concentrations of ^orange;Core Fragments^reset; ner the surface. Although, a high concentration of dangerous biological life is also detected. Precaution is advised."
+    "text" : "There is also a mine with high concentrations of ^orange;Core Fragments^reset; near the surface. Although, a high concentration of primitive biological life is also detected."
   },
   "mb-collectRepairItem2" : {
     "type" : "quest",

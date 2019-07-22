@@ -45,6 +45,7 @@
       "capabilities" : ["teleport", "planetTravel"]
     },
 
-    "scientistUid" : "mb_scientist"
+    "scientistUid" : "mb_scientist",
+    "noticeRange" : 80
   }
 }

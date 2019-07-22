@@ -9,7 +9,7 @@ function init()
 
   self.scientistUid = config.getParameter("scientistUid")
   self.repairItems = config.getParameter("repairItems")
-  storage.gatherTime = storage.gatherTime or 0
+  self.noticeRange = config.getParameter("noticeRange")
 
   quest.setParameter("itemList", config.getParameter("repairItemsIndicators"))
 
@@ -44,15 +44,19 @@ end
 function collectRepairItem()
   quest.setCompassDirection(nil)
   quest.setIndicators({"itemList"})
-
-  if not self.informated then
-    player.radioMessage("gaterepair-gateFound2")
-    player.radioMessage("mb-collectRepairItem1")
-    player.radioMessage("mb-collectRepairItem2")
-    self.informated = true
-  end
+  local findSci = util.uniqueEntityTracker(self.scientistUid, self.compassUpdate)
 
   while storage.stage == 1 do
+    local sciPosition = findSci()
+    if sciPosition then
+      if not self.informated and world.magnitude(mcontroller.position(), sciPosition) > self.noticeRange then
+        player.radioMessage("gaterepair-gateFound2")
+        player.radioMessage("mb-collectRepairItem1")
+        player.radioMessage("mb-collectRepairItem2")
+        self.informated = true
+      end
+    end
+
     quest.setObjectiveList({{self.descriptions.collectRepairItem, false}})
     local playerProgress = playerProgression(self.repairItems)
     quest.setProgress(playerProgress)
