@@ -1,0 +1,31 @@
+[
+  {
+    "op" : "add",
+    "path" : "/planetaryTypes/mbOutpostGeneral",
+    "value" : {
+      "satelliteProbability" : 0.0,
+
+      "baseParameters" : {
+        "worldType" : "FloatingDungeon",
+        "description" : "General Outpost",
+        "dungeonWorld" : "outpost",
+        "smallImage" : "/celestial/system/gate.png",
+        "image" : "/celestial/system/outpost/outpost.png",
+        "imageScale" : 1.0,
+        "smallImageScale" : 1.0,
+        "worldSize" : "ancientgateway",
+
+        "terrestrialType" : [ "outpost" ],
+
+        "dynamicsImages" : "/celestial/system/gate/dynamics/<num>.png",
+        "dynamicsRange" : [0, 0],
+        "shadowNumber" : [1, 9]
+      }
+    }
+  },
+  {
+    "op" : "add",
+    "path" : "/systemTypes/White/orbitRegions/3/planetaryTypes",
+    "value" : [{"weight" : 1, "item" : "mbOutpostGeneral"}]
+  }
+]
