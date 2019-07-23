@@ -23,8 +23,8 @@
   },
   {
     "op" : "add",
-    "path" : "/systemTypes/White/orbitRegions/3/planetaryTypes/-",
-    "value" : {"weight" : 1.0, "item" : "mbOutpostGeneral"}
+    "path" : "/systemTypes/White/orbitRegions/3/planetaryTypes/",
+    "value" : [{"weight" : 1.0, "item" : "mbOutpostGeneral"}]
   },
   {
     "op" : "add",
