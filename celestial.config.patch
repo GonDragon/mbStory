@@ -8,14 +8,14 @@
       "baseParameters" : {
         "worldType" : "FloatingDungeon",
         "description" : "General Outpost",
-        "dungeonWorld" : "outpost",
+        "dungeonWorld" : "mbOutpostGeneral",
         "smallImage" : "/celestial/system/mb_outpost.png",
         "image" : "/celestial/system/modularbound/outpost/outpost.png",
         "imageScale" : 1.0,
         "smallImageScale" : 1.0,
         "worldSize" : "mbOutpostGeneral",
 
-        "dynamicsImages" : "/celestial/system/gate/dynamics/<num>.png",
+        "dynamicsImages" : "/assetmissing.png",
         "dynamicsRange" : [0, 0],
         "shadowNumber" : [1, 9]
       }
@@ -23,12 +23,12 @@
   },
   {
     "op" : "add",
-    "path" : "/systemTypes/White/orbitRegions/3/planetaryTypes",
-    "value" : [{"weight" : 1, "item" : "mbOutpostGeneral"}]
+    "path" : "/systemTypes/White/orbitRegions/3/planetaryTypes/-",
+    "value" : {"weight" : 1.0, "item" : "mbOutpostGeneral"}
   },
   {
     "op" : "add",
-    "path" : "/floatingDungeonHorizons/outpost",
+    "path" : "/floatingDungeonHorizons/mbOutpostGeneral",
     "value" : "/celestial/system/modularbound/outpost/horizon/outpost_<selector>.png"
   }
 ]
