@@ -1,0 +1,19 @@
+[
+  {
+    "op" : "add",
+    "path" : "/visitableTypeDescription/mbOutpostGeneral",
+    "value" : [
+      "An general purpose ^#orange;Outpost^white;; a pretty handy place to visit."
+    ]
+  },
+  {
+    "op" : "add",
+    "path" : "/planetTypeNames/mbOutpostGeneral",
+    "value" : "Outpost"
+  },
+  {
+    "op" : "add",
+    "path" : "/planetTypeColors/mbOutpostGeneral",
+    "value" : [50, 50, 50]
+  }
+]
